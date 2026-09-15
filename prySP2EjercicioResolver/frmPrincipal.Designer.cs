@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             grpDistancia = new GroupBox();
-            rbCorta = new RadioButton();
             rbLarga = new RadioButton();
+            rbCorta = new RadioButton();
             btnRegistrar = new Button();
             dtpFecha = new DateTimePicker();
             txtCodigo = new TextBox();
@@ -52,17 +52,6 @@
             grpDistancia.TabStop = false;
             grpDistancia.Text = "Distancia";
             // 
-            // rbCorta
-            // 
-            rbCorta.AutoSize = true;
-            rbCorta.Location = new Point(31, 22);
-            rbCorta.Name = "rbCorta";
-            rbCorta.Size = new Size(54, 19);
-            rbCorta.TabIndex = 0;
-            rbCorta.TabStop = true;
-            rbCorta.Text = "Corta";
-            rbCorta.UseVisualStyleBackColor = true;
-            // 
             // rbLarga
             // 
             rbLarga.AutoSize = true;
@@ -74,6 +63,17 @@
             rbLarga.Text = "Larga";
             rbLarga.UseVisualStyleBackColor = true;
             // 
+            // rbCorta
+            // 
+            rbCorta.AutoSize = true;
+            rbCorta.Location = new Point(31, 22);
+            rbCorta.Name = "rbCorta";
+            rbCorta.Size = new Size(54, 19);
+            rbCorta.TabIndex = 0;
+            rbCorta.TabStop = true;
+            rbCorta.Text = "Corta";
+            rbCorta.UseVisualStyleBackColor = true;
+            // 
             // btnRegistrar
             // 
             btnRegistrar.Location = new Point(202, 314);
@@ -82,9 +82,11 @@
             btnRegistrar.TabIndex = 1;
             btnRegistrar.Text = "Registrar";
             btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // dtpFecha
             // 
+            dtpFecha.Format = DateTimePickerFormat.Short;
             dtpFecha.Location = new Point(116, 35);
             dtpFecha.Name = "dtpFecha";
             dtpFecha.Size = new Size(161, 23);
@@ -96,6 +98,8 @@
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(121, 23);
             txtCodigo.TabIndex = 3;
+            txtCodigo.TextChanged += txtCodigo_TextChanged;
+            txtCodigo.KeyPress += txtCodigo_KeyPress;
             // 
             // cboTipoBoleto
             // 
@@ -146,8 +150,12 @@
             Controls.Add(dtpFecha);
             Controls.Add(btnRegistrar);
             Controls.Add(grpDistancia);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Venta Boletería";
+            Load += frmPrincipal_Load;
             grpDistancia.ResumeLayout(false);
             grpDistancia.PerformLayout();
             ResumeLayout(false);
